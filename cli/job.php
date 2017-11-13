@@ -1,19 +1,24 @@
 <?php
 
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Reference;
 
-(new Application('vftest', '1.0.0'))
-  ->register('findCode')
-      ->addArgument('cities', InputArgument::IS_ARRAY, 'The city name')
-      ->setCode(function(InputInterface $input, OutputInterface $output) {
-          print_r($input->getArguments('cities'));
-      })
-  ->getApplication()
-  ->setDefaultCommand('findCode', TRUE)
-  ->run();
+use VfTest\Command\FindCodeCommand;
+
+
+$container = new ContainerBuilder();
+$container->register('config', 'VfTest\Lib\Config')
+        ->addArgument(__DIR__ . '/../config/vftest.yml');
+$container->register('location', 'VfTest\Lib\LocationClient')
+        ->addArgument(new Reference('config'));
+$container->register('finder', 'VfTest\Lib\CodeFinder')
+        ->addArgument(new Reference('location'));
+
+
+$application = new Application();
+$application->add(new FindCodeCommand($container));
+$application->setDefaultCommand('findCode', TRUE);
+$application->run();
