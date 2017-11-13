@@ -1,0 +1,2 @@
+location_service:
+    endpoint: http://www.webservicex.net/uklocation.asmx?WSDL
