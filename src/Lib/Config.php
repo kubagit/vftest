@@ -7,7 +7,7 @@ use Symfony\Component\Yaml\Yaml;
 class Config {
 
     /**
-     * @var LocationClient
+     * @var array
      */
     private $configValues;
 
