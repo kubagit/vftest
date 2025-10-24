@@ -1,0 +1,20 @@
+{block content}
+<section class="panel controller" data-game-code="{$gameCode}" data-player-token="{$token}">
+    <header>
+        <h2>{$player['name']}</h2>
+        <p class="subtitle">Ovladač hry <span class="badge">{$gameCode}</span></p>
+    </header>
+    <div class="controller-status">
+        <p class="status-message">Čekám na start hry…</p>
+        <div class="timer"><span class="timer-value">--</span></div>
+    </div>
+    <div class="controller-question hidden">
+        <div class="question-text"></div>
+        <div class="options"></div>
+    </div>
+    <div class="controller-actions">
+        <button class="btn danger" data-action="leave">Ukončit / odhlásit</button>
+    </div>
+</section>
+<script src="{$basePath}/js/player.js"></script>
+{/block}
