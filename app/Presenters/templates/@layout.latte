@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="cs">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{ifset title}{include title|stripHtml} · {/ifset}QuizSync</title>
+    <link rel="stylesheet" href="{$basePath}/css/app.css">
+    <script>window.APP_BASE_PATH = '{$basePath}';</script>
+</head>
+<body>
+<header class="app-header">
+    <h1><a href="{$basePath}/">QuizSync</a></h1>
+</header>
+<main>
+    {include content}
+</main>
+<footer class="app-footer">
+    <p>Postaveno na Nette, data otázek z české Wikipedie.</p>
+</footer>
+</body>
+</html>

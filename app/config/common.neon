@@ -1,0 +1,39 @@
+parameters:
+    timezone: Europe/Prague
+    database:
+        dsn: 'mysql:host=127.0.0.1;dbname=quiz;charset=utf8mb4'
+        user: 'quiz'
+        password: 'secret'
+        options:
+            1002: 'SET NAMES utf8mb4'
+
+services:
+    router: App\Router\RouterFactory::create
+    database.connection:
+        factory: Nette\Database\Connection(%database.dsn%, %database.user%, %database.password%, %database.options%)
+    database.structure:
+        factory: Nette\Database\Structure(@database.connection, %appDir%)
+    database.conventions:
+        factory: Nette\Database\Conventions\DiscoveredConventions(@database.structure)
+    database.context:
+        factory: Nette\Database\Explorer(@database.connection, @database.structure, @database.conventions)
+    - App\Model\GameService
+    - App\Model\PlayerService
+    - App\Model\QuestionService
+    - App\Model\GameStateFormatter
+    - App\Services\WikipediaQuestionProvider
+
+application:
+    errorPresenter: Nette:Error
+    mapping:
+        *: App\Presenters\*Presenter
+
+bootstrap:
+    class: App\Bootstrap
+
+tracy:
+    email: null
+    fromEmail: null
+
+session:
+    autoStart: true

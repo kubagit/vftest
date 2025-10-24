@@ -1,0 +1,6 @@
+database:
+    dsn: 'mysql:host=127.0.0.1;dbname=quiz;charset=utf8mb4'
+    user: 'quiz'
+    password: 'secret'
+    options:
+        1002: 'SET NAMES utf8mb4'

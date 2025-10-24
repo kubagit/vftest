@@ -1,0 +1,16 @@
+{block content}
+<section class="panel">
+    <h2>Založit novou hru</h2>
+    <p>Zadej parametry hry a spustíme registraci hráčů. Pro běh aplikace připrav databázi MySQL podle přiložených migrací a nastav připojení v <code>app/config/local.neon</code>.</p>
+    {control newGameForm}
+</section>
+<section class="panel tips">
+    <h3>Jak hra probíhá</h3>
+    <ol>
+        <li>Vytvoř hru a nech hráče přihlásit pomocí jména.</li>
+        <li>Každému hráči se po registraci zobrazí QR kód s adresou jeho ovladače.</li>
+        <li>Po zahájení hry se na stolním zařízení i na mobilech zobrazí otázky, odpovědi a časovač.</li>
+        <li>Po odehrání všech otázek se ukáže žebříček a můžeš založit novou hru.</li>
+    </ol>
+</section>
+{/block}

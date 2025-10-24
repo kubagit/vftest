@@ -1,0 +1,269 @@
+:root {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: #1b1b1b;
+    background: #f5f5f5;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(180deg, #f5f5f5 0%, #ffffff 40%);
+}
+
+a {
+    color: #0b7285;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.app-header,
+.app-footer {
+    background: #0b7285;
+    color: #fff;
+    padding: 1rem 1.5rem;
+}
+
+.app-header a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.panel {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.panel h2 {
+    margin-top: 0;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #0b7285;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn:hover {
+    box-shadow: 0 6px 18px rgba(11, 114, 133, 0.2);
+    transform: translateY(-1px);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.btn.secondary {
+    background: #adb5bd;
+}
+
+.btn.danger {
+    background: #c92a2a;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    margin-top: 0.3rem;
+    box-sizing: border-box;
+}
+
+form .btn {
+    margin-top: 0.8rem;
+}
+
+.host-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.host-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.badge {
+    background: #1864ab;
+    color: #fff;
+    border-radius: 999px;
+    padding: 0.2rem 0.8rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+}
+
+.player-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.player-list li {
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 0.8rem;
+    display: grid;
+    grid-template-columns: 1fr 140px;
+    gap: 0.8rem;
+    align-items: center;
+    background: #f8f9fa;
+}
+
+.player-list .qr {
+    justify-self: center;
+}
+
+.player-list canvas {
+    width: 120px;
+    height: 120px;
+}
+
+.scoreboard {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.scoreboard th,
+.scoreboard td {
+    padding: 0.6rem;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.scoreboard tbody tr:nth-child(odd) {
+    background: #f1f3f5;
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.timer-value.active {
+    color: #d9480f;
+}
+
+.question-text {
+    white-space: pre-line;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.question-box ol {
+    padding-left: 1rem;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.question-box li {
+    background: #edf2ff;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+}
+
+.question-box li.correct {
+    background: #d3f9d8;
+    border-left: 4px solid #2b8a3e;
+}
+
+.question-box li.incorrect {
+    background: #ffe3e3;
+    border-left: 4px solid #c92a2a;
+}
+
+.question-meta {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+.controller {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.controller .options {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.controller .options button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+.controller .options button.selected {
+    background: #2b8a3e;
+}
+
+.controller .options button.disabled {
+    background: #adb5bd;
+    pointer-events: none;
+}
+
+.controller .question-text {
+    margin-bottom: 1rem;
+}
+
+.controller .hidden {
+    display: none;
+}
+
+.status-message {
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .host-actions {
+        justify-content: center;
+    }
+
+    .player-list li {
+        grid-template-columns: 1fr;
+    }
+
+    .player-list canvas {
+        width: 160px;
+        height: 160px;
+    }
+}

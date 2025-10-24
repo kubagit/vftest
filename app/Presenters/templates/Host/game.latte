@@ -1,0 +1,53 @@
+{block content}
+<section class="panel host" data-game-code="{$code}">
+    <header class="host-header">
+        <h2>Hra <span class="badge">{$code}</span></h2>
+        <div class="host-actions">
+            <button class="btn" data-action="start">Zahájit hru</button>
+            <button class="btn" data-action="reveal">Odhalit odpověď</button>
+            <button class="btn" data-action="next">Další otázka</button>
+            <button class="btn" data-action="finish">Ukončit hru</button>
+            <a class="btn secondary" href="{$basePath}/">Nová hra</a>
+        </div>
+    </header>
+
+    <div class="host-layout">
+        <div class="column">
+            <h3>Registrace hráčů</h3>
+            <form class="register-form">
+                <label>
+                    Jméno hráče
+                    <input type="text" name="name" required>
+                </label>
+                <button type="submit" class="btn">Registrovat</button>
+            </form>
+            <div class="qr-hint">
+                <p>Po registraci se objeví QR kód s odkazem na mobilní ovladač.</p>
+            </div>
+            <ul class="player-list"></ul>
+        </div>
+        <div class="column question-column">
+            <h3>Aktuální otázka</h3>
+            <div class="question-box">
+                <div class="timer" data-seconds="{$state['countdownSeconds']}">
+                    <span class="timer-label">Čas</span>
+                    <span class="timer-value">--</span>
+                </div>
+                <div class="question-text"></div>
+                <ol class="options"></ol>
+                <div class="question-meta"></div>
+            </div>
+        </div>
+        <div class="column scoreboard-column">
+            <h3>Skóre</h3>
+            <table class="scoreboard">
+                <thead>
+                    <tr><th>Hráč</th><th>Skóre</th><th>Odpověď</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<script src="{$basePath}/js/host.js"></script>
+{/block}
